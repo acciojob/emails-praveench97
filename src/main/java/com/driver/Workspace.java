@@ -27,6 +27,8 @@ public class Workspace extends Gmail{
         // Example: If a meeting ends at 10:00 am, you cannot attend another meeting starting at 10:00 am
         int count = 0;
         LocalTime endTime = calendar.get(0).getEndTime();
+        if(calendar.size()==0) return 0;
+        if(calendar.size()==1) return 1;
         for(int i=1; i<calendar.size(); i++){
             if(calendar.get(i).getStartTime().compareTo(endTime)>0){
                 count++;
